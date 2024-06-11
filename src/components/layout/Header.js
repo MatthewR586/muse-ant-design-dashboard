@@ -293,17 +293,7 @@ function Header({
           </div>
         </Col>
         <Col span={24} md={18} className="header-control">
-          <Badge size="small" count={4}>
-            <Dropdown overlay={menu} trigger={["click"]}>
-              <a
-                href="#pablo"
-                className="ant-dropdown-link"
-                onClick={(e) => e.preventDefault()}
-              >
-                {bell}
-              </a>
-            </Dropdown>
-          </Badge>
+          
           <Button type="link" onClick={showDrawer}>
             {logsetting}
           </Button>
@@ -392,44 +382,16 @@ function Header({
                     </Button>
                   </ButtonContainer>
                 </div>
-                <div className="fixed-nav mb-2">
-                  <Title level={5}>Navbar Fixed </Title>
-                  <Switch onChange={(e) => handleFixedNavbar(e)} />
-                </div>
-                <div className="ant-docment">
-                  <ButtonContainer>
-                    <Button type="black" size="large">
-                      FREE DOWNLOAD
-                    </Button>
-                    <Button size="large">VIEW DOCUMENTATION</Button>
-                  </ButtonContainer>
-                </div>
-                <div className="viewstar">
-                  <a href="#pablo">{<StarOutlined />} Star</a>
-                  <a href="#pablo"> 190</a>
-                </div>
-
-                <div className="ant-thank">
-                  <Title level={5} className="mb-2">
-                    Thank you for sharing!
-                  </Title>
-                  <ButtonContainer className="social">
-                    <Button type="black">{<TwitterOutlined />}TWEET</Button>
-                    <Button type="black">{<FacebookFilled />}SHARE</Button>
-                  </ButtonContainer>
-                </div>
+                
               </div>
             </div>
           </Drawer>
-          <Link to="/sign-in" className="btn-sign-in">
-            {profile}
-            <span>Sign in</span>
-          </Link>
+{/*           
           <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
-          />
+          /> */}
         </Col>
       </Row>
     </>

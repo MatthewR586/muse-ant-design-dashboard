@@ -13,7 +13,9 @@
 // import { useState } from "react";
 import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import { PhoneOutlined } from "@ant-design/icons";
+import { BsTelephoneOutbound, BsTelephoneInbound  } from "react-icons/bs";
+import { RiMailSettingsLine } from "react-icons/ri";
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -163,8 +165,8 @@ function Sidenav({ color }) {
   return (
     <>
       <div className="brand">
-        <img src={logo} alt="" />
-        <span>Muse Dashboard</span>
+        <PhoneOutlined />
+        <span>AI Auto Call Dashboard</span>
       </div>
       <hr />
       <Menu theme="light" mode="inline">
@@ -189,9 +191,9 @@ function Sidenav({ color }) {
                 background: page === "tables" ? color : "",
               }}
             >
-              {tables}
+             <BsTelephoneInbound />
             </span>
-            <span className="label">Tables</span>
+            <span className="label">Incoming</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="3">
@@ -202,25 +204,25 @@ function Sidenav({ color }) {
                 background: page === "billing" ? color : "",
               }}
             >
-              {billing}
+              <BsTelephoneOutbound />
             </span>
-            <span className="label">Billing</span>
+            <span className="label">Outcoming</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="4">
-          <NavLink to="/rtl">
+          <NavLink to="/mail">
             <span
               className="icon"
               style={{
-                background: page === "rtl" ? color : "",
+                background: page === "mail" ? color : "",
               }}
             >
-              {rtl}
+              <RiMailSettingsLine />
             </span>
-            <span className="label">RTL</span>
+            <span className="label">Mail</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item className="menu-item-header" key="5">
+        {/* <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>
         <Menu.Item key="6">
@@ -247,25 +249,8 @@ function Sidenav({ color }) {
             <span className="icon">{signup}</span>
             <span className="label">Sign Up</span>
           </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
-      <div className="aside-footer">
-        <div
-          className="footer-box"
-          style={{
-            background: color,
-          }}
-        >
-          <span className="icon" style={{ color }}>
-            {dashboard}
-          </span>
-          <h6>Need Help?</h6>
-          <p>Please check our docs</p>
-          <Button type="primary" className="ant-btn-sm ant-btn-block">
-            DOCUMENTATION
-          </Button>
-        </div>
-      </div>
     </>
   );
 }
