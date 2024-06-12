@@ -11,7 +11,6 @@
 */
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
-import Tables from "./pages/Tables";
 import Billing from "./pages/Billing";
 import Rtl from "./pages/Rtl";
 import Profile from "./pages/Profile";
@@ -20,6 +19,9 @@ import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
+import Incoming from "./pages/Incoming";
+import Scripts from "./pages/Scripts";
+import Outcoming from "./pages/Outcoming";
 
 function App() {
   return (
@@ -27,11 +29,10 @@ function App() {
       <Switch>
         <Main>
           <Route exact path="/dashboard" component={Home} />
-          <Route exact path="/tables" component={Tables} />
-          <Route exact path="/billing" component={Billing} />
-          <Route exact path="/rtl" component={Rtl} />
+          <Route exact path="/incoming" component={Incoming} />
+          <Route exact path="/scripts" component={Scripts} />
+          <Route exact path="/outcoming" component={Outcoming} />
           <Route exact path="/mail" component={Mail} />
-          <Route exact path="/profile" component={Profile} />
           <Redirect from="*" to="/dashboard" />
         </Main>
       </Switch>

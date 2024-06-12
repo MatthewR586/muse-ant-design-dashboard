@@ -16,6 +16,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { PhoneOutlined } from "@ant-design/icons";
 import { BsTelephoneOutbound, BsTelephoneInbound  } from "react-icons/bs";
 import { RiMailSettingsLine } from "react-icons/ri";
+import { PiClipboardTextThin } from "react-icons/pi";
+
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -184,11 +186,11 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
-          <NavLink to="/tables">
+          <NavLink to="/incoming">
             <span
               className="icon"
               style={{
-                background: page === "tables" ? color : "",
+                background: page === "incoming" ? color : "",
               }}
             >
              <BsTelephoneInbound />
@@ -197,16 +199,29 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         <Menu.Item key="3">
-          <NavLink to="/billing">
+          <NavLink to="/outcoming">
             <span
               className="icon"
               style={{
-                background: page === "billing" ? color : "",
+                background: page === "outcoming" ? color : "",
               }}
             >
               <BsTelephoneOutbound />
             </span>
             <span className="label">Outcoming</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <NavLink to="/scripts">
+            <span
+              className="icon"
+              style={{
+                background: page === "scripts" ? color : "",
+              }}
+            >
+              <PiClipboardTextThin />
+            </span>
+            <span className="label">Scripts</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="4">
