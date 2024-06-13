@@ -25,37 +25,10 @@ import {
   Input,
   Tag,
   Space,
+  Modal
 } from "antd";
 
-
-const script_columns = [
-  {
-    title: "Date",
-    dataIndex: "last_updated",
-    key: "last_updated",
-    render: (last_updated) => {
-      const date = new Date(last_updated);
-      const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} (${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })})`;
-      return (<div>{formattedDate}</div>)
-    }
-  },
-  {
-    title: "Prompt",
-    dataIndex: "prompt",
-    key: "prompt",
-  },
-  {
-    title: "Category",
-    dataIndex: "name",
-    key: "name",
-  },
-  {
-    title: "Edit",
-    render: (_, record) => {
-      return <a>Edit</a>;
-    },
-  },
-];
+import { useState } from "react";
 
 const script_data = [
   {
@@ -84,6 +57,46 @@ const script_data = [
 const { TextArea } = Input;
 
 function Scripts() {
+  const [openDeleteConfirmModal, setOpenDeleteConfirmModal] = useState(true)
+
+  const script_columns = [
+
+    {
+      title: "Prompt",
+      dataIndex: "prompt",
+      key: "prompt",
+    },
+    {
+      title: "Category",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Edit",
+      render: (_, record) => {
+        return <a>Edit</a>;
+      },
+    },
+    {
+      title: "Delete",
+      render: (_, record) => {
+        return <a style={{ color: "#ff4d4f" }} onClick={onDeleteScriptButtonClick}>Delete</a>;
+      },
+    },
+  ];
+
+  const onDeleteScriptButtonClick = (e) => {
+    setOpenDeleteConfirmModal(true);
+  }
+
+  const handleOk = (e) => {
+    setOpenDeleteConfirmModal(false)
+  }
+
+  const handleCancel = (e) => {
+    setOpenDeleteConfirmModal(false)
+  }
+
   return (
     <>
       <div className="layout-content">
@@ -94,7 +107,19 @@ function Scripts() {
             </Card>
           </Col>
         </Row>
+        <Row justify="end" style={{ marginTop: "20px" }}>
+          <Button type="primary" style={{ marginRight: "10px" }}>Add</Button>
+        </Row>
+        <Modal
+          title="Confirm"
+          open={true}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Are you sure?</p>
+        </Modal>
       </div>
+
     </>
   );
 }

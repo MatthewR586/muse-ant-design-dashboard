@@ -37,105 +37,130 @@ const pattient_columns = [
     key: "Patient_email",
   },
   {
-    title: "Phone Number",
+    title: "Phone",
     dataIndex: "Patient_cell_phone",
     key: "Patient_cell_phone",
-  }
+  },
+  {
+    title: "tier/team",
+    dataIndex: "Team",
+    key: "Team",
+  },{
+    title: "law firm",
+    dataIndex: "Law_Firm_Name",
+    key: "Law_Firm_Name",
+  },{
+    title: "Date Of Injury",
+    dataIndex: "Date_of_injury",
+    key: "Date_of_injury",
+  },{
+    title: "Date Of Birth",
+    dataIndex: "Patient_date_of_birth",
+    key: "Patient_date_of_birth",
+  },{
+    title: "Language",
+    dataIndex: "Language_Speak",
+    key: "Language_Speak",
+  },
 ];
 
-const pattient_data = [
+const patient_data = [
   {
     key: "1",
-    name: "John Brown",
+    Patient_First_name: "John",
+    Last_Name: "Brown",
     age: 32,
     address: "New York No. 1 Lake Park",
     created_at: "6/11/2024 (12:50 PM)",
-    to: "+16095420502",
+    Patient_cell_phone: "+16095420502",
     call_length: 0.834,
+    Team: "Gold",
+    Language_Speak: "English",
+    Date_of_injury: "12/3/2020",
+    Patient_date_of_birth: "05/08/1965",
+    Law_Firm_Name	: "VB & Assistant",
+    Patient_email: "template@gmail.com",
   },
   {
     key: "2",
-    name: "Jim Green",
+    Patient_First_name: "Jim",
+    Last_Name: "Green",
     age: 42,
     created_at: "6/11/2024 (12:50 PM)",
     address: "London No. 1 Lake Park",
-    to: "+14844433759",
+    Patient_cell_phone: "+14844433759",
     call_length: 0.834,
+    Team: "Gold",
+    Language_Speak: "English",
+    Date_of_injury: "12/3/2020",
+    Patient_date_of_birth: "05/08/1965",
+    Law_Firm_Name	: "VB & Assistant",
+    Patient_email: "template@gmail.com",
+
   },
   {
     key: "3",
-    name: "Joe Black",
+    Patient_First_name: "Black",
+    Last_Name: "Black",
     age: 32,
     created_at: "6/11/2024 (12:50 PM)",
     address: "Sydney No. 1 Lake Park",
-    to: "+17029703755",
+    Patient_cell_phone: "+17029703755",
     call_length: 0.834,
+    Team: "Gold",
+    Language_Speak: "English",
+    Date_of_injury: "12/3/2020",
+    Patient_date_of_birth: "05/08/1965",
+    Law_Firm_Name	: "VB & Assistant",
+    Patient_email: "template@gmail.com",
+
   },
 ];
 
 const law_columns = [
   {
-    title: "Date",
-    dataIndex: "created_at",
-    key: "created_at",
+    title: "Account Name",
+    dataIndex: "Account_Name",
+    key: "Account_Name",
   },
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "Owner",
+    dataIndex: "Account_Owner",
+    key: "Account_Owner",
   },
   {
-    title: "Phone Number",
-    dataIndex: "to",
-    key: "to",
+    title: "Fax",
+    dataIndex: "Law_Firm_Fax",
+    key: "Law_Firm_Fax",
   },
   {
-    title: "Call Length",
-    dataIndex: "call_length",
-    key: "call_length",
-    render: (call_length) => {
-      return <div>{Math.ceil(call_length * 60)}s</div>;
-    },
-  },
-
-  {
-    title: "Details",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a>View</a>
-      </Space>
-    ),
-  },
+    title: "Cell",
+    dataIndex: "Lawfirm_Cell",
+    key: "Lawfirm_Cell",
+  }
 ];
 
 const law_data = [
   {
     key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    created_at: "6/11/2024 (12:50 PM)",
-    to: "+16095420502",
-    call_length: 0.834,
+    Account_Name: "VB & Associates",
+    Account_Owner: "John Brown",
+    Law_Firm_Fax: "+16095420502",
+    Lawfirm_Cell: "+16095420502",
   },
   {
     key: "2",
-    name: "Jim Green",
-    age: 42,
-    created_at: "6/11/2024 (12:50 PM)",
-    address: "London No. 1 Lake Park",
-    to: "+14844433759",
-    call_length: 0.834,
+    Account_Name: "VB & Associates",
+    Account_Owner: "Jim Green",
+    Law_Firm_Fax: "+14844433759",
+    Lawfirm_Cell: "+16095420502",
   },
   {
     key: "3",
-    name: "Joe Black",
-    age: 32,
-    created_at: "6/11/2024 (12:50 PM)",
-    address: "Sydney No. 1 Lake Park",
-    to: "+17029703755",
-    call_length: 0.834,
+    Account_Name: "VB & Associates",
+    Account_Owner: "Joe Black",
+    Law_Firm_Fax: "+17029703755",
+    Lawfirm_Cell: "+16095420502",
   },
 ];
 
@@ -147,7 +172,8 @@ const law_data = [
             <Card title="Pattient">
               <Table
                 columns={pattient_columns}
-                dataSource={pattient_data}
+                dataSource={patient_data}
+                scroll={{x: true}}
               />
             </Card>
           </Col>

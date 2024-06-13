@@ -11,9 +11,6 @@
 */
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
-import Billing from "./pages/Billing";
-import Rtl from "./pages/Rtl";
-import Profile from "./pages/Profile";
 import Mail from "./pages/Mail";
 import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
@@ -24,6 +21,7 @@ import Scripts from "./pages/Scripts";
 import Outcoming from "./pages/Outcoming";
 
 function App() {
+
   return (
     <div className="App">
       <Switch>
